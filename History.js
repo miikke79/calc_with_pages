@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, FlatList} from 'react-native';
 export default function History({route}) {
 
     const{ data } = route.params;
-    
+
   return (
 
     <View style={styles.container}>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
   container2: {
     flex: 1,
-    backgroundColor: '#fff',
+
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -3,21 +3,26 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, Button, TextInput, FlatList} from 'react-native';
 
 export default function Calculator({ navigation })  {
+
   const [topNumber, setTopNumber] = useState(0);
   const [bottomNumber, setBottomNumber] = useState(0);
   const [result, setResult] = useState(0);
   const [data, setData] = useState([]);
-  const hist1 = topNumber + ' + ' + bottomNumber + ' = ' + (Number(topNumber)+Number(bottomNumber));
-  const hist2 = topNumber + ' - ' + bottomNumber + ' = ' + (topNumber-bottomNumber);
-
+  
   const plusButtonPressed = () => { 
-    setResult(Number(topNumber)+Number(bottomNumber));
+    const hist1 = topNumber + ' + ' + bottomNumber + ' = ' + (Number(topNumber)+Number(bottomNumber));
+    setResult(hist1);
     setData([...data, {key: hist1}]);
+    setTopNumber();
+    setBottomNumber();
   };
 
   const minusButtonPressed = () => { 
-    setResult(topNumber-bottomNumber);
+    const hist2 = topNumber + ' - ' + bottomNumber + ' = ' + (topNumber-bottomNumber);
+    setResult(hist2);
     setData([...data, {key: hist2}]);
+    setTopNumber();
+    setBottomNumber();
   };
 
   return (
@@ -52,7 +57,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    marginTop: 20,
+    marginTop: 200,
     alignItems: 'center',
     
   },
